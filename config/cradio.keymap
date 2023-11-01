@@ -4,7 +4,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/mouse.h>
+// #include <dt-bindings/zmk/mouse.h>
 
 
 &mt {
@@ -12,10 +12,10 @@
     tapping_term_ms = <200>;
 };
 
-&mmv {
-   time-to-max-speed-ms = <680>;
-   acceleration-exponent=<2>;
-};
+// &mmv {
+//    time-to-max-speed-ms = <680>;
+//    acceleration-exponent=<2>;
+// };
 
 #define HRML(k1,k2,k3,k4) &kp k1  &kp k2  &ht LALT k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RALT k2  &kp k3  &kp k4
@@ -83,13 +83,14 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ESC      │  1       │  2       │  3       │          │   │ `        │ (        │ )        │ ~        │ BACKSPACE│
-            &kp ESC  &kp N1     &mmv MOVE_UP  &kp N3     &trans      &mwh SCROLL_LEFT &mwh SCROLL_DOWN   &mwh SCROLL_UP    &mwh SCROLL_RIGH  &kp BKSP
+        //  &kp ESC  &mkp LCLK  &mmv MOVE_UP  &mkp RCLK     &trans      &mwh SCROLL_LEFT &mwh SCROLL_DOWN   &mwh SCROLL_UP    &mwh SCROLL_RIGH  &kp BKSP
+            &kp ESC     &trans     &trans     &trans     &trans      &trans &trans   &trans  &trans  &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ TAB      │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ALT     │
-         &kp TAB &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans         &kp LARW   &kp LBKT   &kp RBKT   &kp RARW   &sk RALT
+            &kp TAB    &trans     &trans     &trans     &trans         &kp LARW   &kp LBKT   &kp RBKT   &kp RARW   &sk RALT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ WIN      │  7       │  8       │  9       │  0       │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │          │
-           &sk RGUI   &kp N7     &kp N8     &kp N9     &kp N0         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &to 3
+            &sk RGUI   &kp N7     &kp N8     &kp N9     &kp N0         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &to 3
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0      &sk RSHFT      &trans     &to 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
