@@ -66,7 +66,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ 0        │  1       │  2       │  3       │          │   │ `        │ (        │ )        │ ~        │ BACKSPACE│
-            &kp N0    &kp N1     &kp N2     &kp N3     &trans         &kp GRAVE  &kp LPAR   &kp RPAR   &kp TILDE   &kp BKSP
+            &kp N0      &kp N1     &kp N2     &kp N3    &none          &kp GRAVE  &kp LPAR   &kp RPAR   &kp TILDE   &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ TAB      │  4       │  5       │  6       │          │   │    =     │ {        │ }        │ -        │  ;       │
             &kp TAB     &kp N4     &kp N5     &kp N6    &caps_word     &kp EQUAL  &kp LBRC   &kp RBRC   &kp MINUS  &kp SEMI
@@ -83,14 +83,14 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ESC      │  1       │  2       │  3       │          │   │ `        │ (        │ )        │ ~        │ BACKSPACE│
-        //  &kp ESC  &mkp LCLK  &mmv MOVE_UP  &mkp RCLK     &trans      &mwh SCROLL_LEFT &mwh SCROLL_DOWN   &mwh SCROLL_UP    &mwh SCROLL_RIGH  &kp BKSP
-            &kp ESC     &trans     &trans     &trans     &trans      &trans &trans   &trans  &trans  &kp BKSP
+        //  &kp ESC  &mkp LCLK  &mmv MOVE_UP  &mkp RCLK     &none      &mwh SCROLL_LEFT &mwh SCROLL_DOWN   &mwh SCROLL_UP    &mwh SCROLL_RIGH  &kp BKSP
+            &kp ESC     &none     &none      &none      &none          &none      &none      &none      &none      &kp BKSP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ TAB      │  4       │  5       │  6       │          │   │ LEFT     │ DOWN     │ UP       │ RIGHT    │  ALT     │
-            &kp TAB    &trans     &trans     &trans     &trans         &kp LARW   &kp LBKT   &kp RBKT   &kp RARW   &sk RALT
+            &kp TAB     &none     &none      &none      &none          &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &sk RALT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ WIN      │  7       │  8       │  9       │  0       │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │          │
-            &sk RGUI   &kp N7     &kp N8     &kp N9     &kp N0         &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &to 3
+            &sk RGUI    &none     &none      &none      &none          &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &to 3
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0      &sk RSHFT      &trans     &to 1
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -102,13 +102,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &kp F1     &kp F2    &kp F3     &kp F4   &sys_reset
+           &sys_reset  &none     &none     &none    &bt BT_SEL 0    &kp F1     &kp F2    &kp F3     &kp F4   &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &kp F5     &kp F6    &kp F7      &kp F8    &bootloader
+          &bootloader  &bt BT_SEL 2 &bt BT_SEL 1  &bt BT_SEL 0 &none   &kp F5     &kp F6    &kp F7      &kp F8    &bootloader
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &kp F9     &kp F10    &kp F11    &kp F12     &trans
+            &bt BT_SEL 4 &bt BT_SEL 3 &none    &bt BT_CLR   &none         &kp F9     &kp F10    &kp F11    &kp F12     &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &to 0     &trans         &trans     &to 2
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
