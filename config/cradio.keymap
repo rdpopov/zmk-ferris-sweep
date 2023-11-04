@@ -30,15 +30,22 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
-        td: tapdance {
-                compatible = "zmk,behavior-hold-tap";
-                label = "TAPDANCE";
-                #binding-cells = <2>;
-                tapping-term-ms = <150>;
-                quick_tap_ms = <0>;
-                flavor = "tap-preferred";
-                bindings = <&kp>, <&kp>;
-            };
+
+        tdl1: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LAYER_1";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 1>, <&to 1>;
+        };
+
+        tdl2: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LAYER_2";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sl 2>, <&to 2>;
+        };
     };
         /*                KEY POSITIONS
 
@@ -84,7 +91,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │               │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B                      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤               ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &sl 1      &ht RSHFT SPC        &ht RCTRL ENTER  &sl 2
+                                             &tdl1      &ht RSHFT SPC              &ht RCTRL ENTER  &tdl2
         //                                 ╰──────────┴──────────╯               ╰──────────┴──────────╯
             >;
         };
@@ -102,7 +109,7 @@
         //│ CAPS     │  7       │  8       │  9       │  0       │   │          │ [        │ ]        │          │          │
            &sk RGUI    &kp N7     &kp N8     &kp N9     &kp N0         &kp PIPE   &kp LBKT   &kp RBKT   &kp BSLH   &sk RALT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &to 1      &trans         &trans     &sl 2
+                                             &sk RALT   &trans         &trans     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -120,7 +127,7 @@
         //│ WIN      │  7       │  8       │  9       │  0       │   │ HOME     │ PAGE DN  │ PAGE UP  │ END      │          │
             &sk RGUI    &kp AMPS  &kp STAR   &kp LPAR    &kp RPAR      &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &sl 3
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &sl 1       &trans        &trans     &to 2
+                                             &sk RALT    &trans        &trans     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         }; 
