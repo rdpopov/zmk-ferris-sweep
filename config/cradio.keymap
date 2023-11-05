@@ -16,8 +16,8 @@
     release-after-ms = <2000>;
 };
 
-#define HRML(k1,k2,k3,k4) &kp k1  &kp k2  &ht LALT k3  &ht LGUI k4
-#define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RALT k2  &kp k3  &kp k4
+// #define HRML(k1,k2,k3,k4) &kp k1  &kp k2  &ht LALT k3  &ht LGUI k4
+// #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RALT k2  &kp k3  &kp k4
 / {
     behaviors {
         ht: hold_tap {
@@ -86,7 +86,7 @@
             &kp Q      &kp W      &kp E      &kp R      &kp T                      &kp Y      &kp U      &kp I      &kp O      &kp P
         //├──────────┼──────────┼──────────┼──────────┼──────────┤               ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  S       │  D       │  F       │  G       │               │  H       │  J       │  K       │  L       │ ' "      │
-            HRML(A,     S,         D,         F)     &kp G                      &kp H      HRMR(J,        K,         L,        SQT)
+            &kp A      &kp S      &ht LALT   &ht LGUI F  &kp G                     &kp H      &ht RGUI J &ht RALT K &kp L      &kp SQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤               ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  V       │  B       │               │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B                      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
