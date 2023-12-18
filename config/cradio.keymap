@@ -16,6 +16,10 @@
     release-after-ms = <2000>;
 };
 
+&lt {
+    tapping-term-ms = <200>;
+};
+
 // #define HRML(k1,k2,k3,k4) &kp k1  &kp k2  &ht LALT k3  &ht LGUI k4
 // #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RALT k2  &kp k3  &kp k4
 
@@ -66,7 +70,7 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
+       /* combo_esc {
             timeout-ms = <50>;
             key-positions = <12 13>;
             bindings = <&kp ESC>;
@@ -76,7 +80,7 @@
             timeout-ms = <50>;
             key-positions = <6 7>;
             bindings = <&kp BACKSPACE>;
-        };
+        };*/
 
         combo_layer {
             timeout-ms = <50>;
@@ -93,7 +97,7 @@
                 &kp Q  &kp W  &kp E      &kp R                &kp T              &kp Y            &kp U                &kp I       &kp O    &kp P
                 &kp A  &kp S  &ht LALT D &ht LGUI F           &kp G              &kp H          &ht RGUI J           &ht RALT K  &kp L    &kp SQT
                 &kp Z  &kp X  &kp C      &kp V                &kp B              &kp N            &kp M                &kp COMMA   &kp DOT  &kp FSLH
-                                        &hold_tap_layer 1 1  &ht RSHFT SPACE    &ht RCTRL ENTER  &hold_tap_layer 2 2
+                                        &lt 1 ESC  &ht RSHFT SPACE    &ht RCTRL ENTER  &lt 2 BKSP
             >;
         };
 
