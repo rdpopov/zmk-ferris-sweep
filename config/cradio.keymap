@@ -80,13 +80,13 @@
             timeout-ms = <50>;
             key-positions = <6 7>;
             bindings = <&kp BACKSPACE>;
-        };*/
+        };
 
         combo_layer {
             timeout-ms = <50>;
             key-positions = <30 33>;
             bindings = <&to 0>;
-        };
+        };*/
     };
 
     keymap {
@@ -103,18 +103,18 @@
 
         left_layer {
             bindings = <
-                &kp N0    &kp N1  &kp N2  &kp N3  &none         &kp PLUS   &kp LPAR  &kp RPAR  &kp UNDERSCORE  &kp BKSP
-                &kp TAB   &kp N4  &kp N5  &kp N6  &caps_word    &kp EQUAL  &kp LBRC  &kp RBRC  &kp MINUS       &kp COLON
-                &sk RGUI  &kp N7  &kp N8  &kp N9  &kp N0        &kp PIPE   &kp LBKT  &kp RBKT  &kp BSLH        &kp SEMI
-                                        &sk RALT  &trans        &trans     &none
+                &kp ESC    &kp N1  &kp N2  &kp N3  &sk RALT         &kp  UNDERSCORE    &kp LPAR  &kp RPAR  &kpPLUS &kp BKSP
+                &kp TAB   &kp N4  &kp N5  &kp N6  &caps_word    &kp MINUS  &kp LBRC  &kp RBRC  &kp  EQUAL       &kp COLON
+                &sk RSHFT  &kp N7  &kp N8  &kp N9  &kp N0        &kp PIPE   &kp LBKT  &kp RBKT  &kp BSLH        &kp SEMI
+                                        &none  &trans        &trans &sk RGUI
             >;
         };
 
         right_layer {
             bindings = <
-                &kp ESC   &kp EXCL    &kp AT       &kp HASH   &none       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END     &kp BACKSPACE
-                &kp TAB   &kp DOLLAR  &kp PERCENT  &kp CARET  &none       &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &sk RALT
-                &sk RGUI  &kp AMPS    &kp STAR     &kp TILDE  &kp GRAVE   &none     &none      &none      &none       &to 3
+                &trans  &kp EXCL    &kp AT       &kp HASH   &none       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END     &kp DEL
+                &trans  &kp DOLLAR  &kp PERCENT  &kp CARET  &none       &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &sk RALT
+                &trans  &kp AMPS    &kp STAR     &kp TILDE  &kp GRAVE   &none     &none      &none      &none       &to 3
                                                 &sk RALT   &trans       &trans    &none
             >;                                                         
         };
@@ -123,7 +123,7 @@
             bindings = <
 &sys_reset   &none  &none       &none       &none         &kp F1  &kp F2   &kp F3   &kp F4   &sys_reset
 &bootloader  &none  &bt BT_PRV  &bt BT_NXT  &none         &kp F5  &kp F6   &kp F7   &kp F8   &bootloader
-&none        &none  &none       &none       &none         &kp F9  &kp F10  &kp F11  &kp F12  &none
+&none        &none  &none       &none       &none         &kp F9  &kp F10  &kp F11  &kp F12  &to 0
                                 &none       &bt BT_CLR    &trans  &none
             >;
         };
