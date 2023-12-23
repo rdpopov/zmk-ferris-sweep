@@ -115,7 +115,7 @@
                 &trans  &kp EXCL    &kp AT       &kp HASH   &none       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END     &kp BKSP
                 &trans  &kp DOLLAR  &kp PERCENT  &kp CARET  &none       &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &sk RALT
                 &trans  &kp AMPS    &kp STAR     &kp TILDE  &kp GRAVE   &none     &none      &none      &none       &to 3
-                                                &sk RALT   &trans       &trans    &none
+                                                 &sk RCTRL  &trans       &trans    &none
             >;                                                         
         };
 
