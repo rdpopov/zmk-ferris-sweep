@@ -5,6 +5,18 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+
+#define BASE 0
+#define NUM 1
+#define SYM 2
+#define BTT 3
+#define POE 4
+#define POE_ALT 5
+#define GAME 6
+#define GAME_ALT 7
+
+
+
 // #include <dt-bindings/zmk/mouse.h>
 
 &mt {
@@ -20,8 +32,6 @@
     tapping-term-ms = <200>;
 };
 
-// #define HRML(k1,k2,k3,k4) &kp k1  &kp k2  &ht LALT k3  &ht LGUI k4
-// #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RALT k2  &kp k3  &kp k4
 
 / {
     behaviors {
@@ -80,13 +90,13 @@
             timeout-ms = <50>;
             key-positions = <6 7>;
             bindings = <&kp BACKSPACE>;
-        };
+        }; */
 
         combo_layer {
             timeout-ms = <50>;
             key-positions = <30 33>;
             bindings = <&to 0>;
-        };*/
+        };
     };
 
     keymap {
@@ -95,36 +105,74 @@
         default_layer {
             bindings = <
                 &kp Q  &kp W  &kp E      &kp R                &kp T              &kp Y            &kp U                &kp I       &kp O    &kp P
-                &kp A  &kp S  &ht LALT D &ht LGUI F           &kp G              &kp H          &ht RGUI J           &ht RALT K  &kp L    &kp SQT
+                &kp A  &kp S  &ht LALT D &ht LGUI F           &kp G              &kp H            &ht RGUI J           &ht RALT K  &kp L    &kp SQT
                 &kp Z  &kp X  &kp C      &kp V                &kp B              &kp N            &kp M                &kp COMMA   &kp DOT  &kp FSLH
-                                        &lt 1 ESC  &ht RSHFT SPACE    &ht RCTRL ENTER  &lt 2 BKSP
+                                         &lt NUM ESC          &ht RSHFT SPACE    &ht RCTRL ENTER  &lt SYM BKSP
             >;
         };
 
+        // NUM
         left_layer {
             bindings = <
-                &kp ESC    &kp N1  &kp N2  &kp N3  &sk RALT         &kp  UNDERSCORE    &kp LPAR  &kp RPAR  &kp PLUS &kp DEL
-                &kp TAB   &kp N4  &kp N5  &kp N6  &caps_word    &kp MINUS  &kp LBRC  &kp RBRC  &kp  EQUAL       &kp COLON
-                &sk RSHFT  &kp N7  &kp N8  &kp N9  &kp N0        &kp PIPE   &kp LBKT  &kp RBKT  &kp BSLH        &kp SEMI
-                                        &none  &trans        &trans &sk RGUI
+                &kp ESC    &kp N1  &kp N2  &kp N3  &sk RALT      &kp UNDERSCORE &kp LPAR  &kp RPAR  &kp PLUS  &kp DEL
+                &kp TAB    &kp N4  &kp N5  &kp N6  &caps_word    &kp MINUS      &kp LBRC  &kp RBRC  &kp EQUAL &kp COLON
+                &sk RSHFT  &kp N7  &kp N8  &kp N9  &kp N0        &kp PIPE       &kp LBKT  &kp RBKT  &kp BSLH  &kp SEMI
+                                           &none   &trans        &trans         &sk RGUI
             >;
         };
 
+        // SYM
         right_layer {
             bindings = <
                 &trans  &kp EXCL    &kp AT       &kp HASH   &none       &kp HOME  &kp PG_DN  &kp PG_UP  &kp END     &kp BKSP
                 &trans  &kp DOLLAR  &kp PERCENT  &kp CARET  &none       &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT   &sk RALT
-                &trans  &kp AMPS    &kp STAR     &kp TILDE  &kp GRAVE   &none     &none      &none      &none       &to 3
-                                                 &sk RCTRL  &trans       &trans    &none
-            >;                                                         
+                &trans  &kp AMPS    &kp STAR     &kp TILDE  &kp GRAVE   &none     &none      &none      &none       &to BT
+                                                 &sk RCTRL  &trans      &trans    &none
+            >;
         };
 
         bt {
             bindings = <
-&sys_reset   &none  &none       &none       &none         &kp F1  &kp F2   &kp F3   &kp F4   &sys_reset
-&bootloader  &none  &bt BT_PRV  &bt BT_NXT  &none         &kp F5  &kp F6   &kp F7   &kp F8   &bootloader
-&none        &none  &none       &none       &none         &kp F9  &kp F10  &kp F11  &kp F12  &to 0
-                                &none       &bt BT_CLR    &trans  &none
+                    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &bt BT_SEL 5     &kp F1    &kp F2     &kp F3  &kp F4    &to POE
+                    &none        &none        &bt BT_PRV   &bt BT_NXT    &none            &kp F5    &kp F6     &kp F7  &kp F8    &to GAME
+                    &none        &none        &none        &none         &none            &kp F9    &kp F10    &kp F11 &kp F12   &to BASE
+                                                           &none         &bt BT_CLR       &trans &none
+            >;
+        };
+
+        poe {
+            bindings = <
+                    &kp N1     &kp N2 &kp N3 &kp N4      &kp N5     &none    &none    &none &none   &none
+                    &kp Q      &kp W  &kp E  &kp R       &kp T      &none    &none    &none &none   &none
+                    &kp LCTRL  &none  &none  &kp I       &kp P      &none    &none    &none &none   &to BASE
+                                             &mo POE_ALT &kp TAB    &none   &none
+            >;
+        };
+
+        poe_alt {
+            bindings = <
+                    &kp ESC    &kp N2    &kp N3    &kp N4    &kp N5        &none    &none    &none &none   &none
+                    &kp LC(Q)  &kp LC(W) &kp LC(E) &kp LC(R) &kp LC(T)     &none    &none    &none &none   &none
+                    &kp LCTRL  &none     &none     &kp I     &kp P         &none    &none    &none &none   &to BASE
+                                                   &none     &none         &none    &none
+            >;
+        };
+
+        game {
+            bindings = <
+                    &kp ESC   &kp Q  &kp W  &kp E        &kp R            &none &none &none &none &none
+                    &kp TAB   &kp A  &kp S  &kp D        &kp F            &none &none &none &none &none
+                    &kp RSHFT &kp Z  &kp X  &kp C        &kp V            &none &none &none &none &to BASE
+                                            &mo GAME_ALT &kp RCTRL        &none &none
+            >;
+        };
+
+        game_alt {
+            bindings = <
+                    &kp ESC   &kp N1  &kp N2  &kp N3 &kp R            &none &none &none &none &none
+                    &kp TAB   &kp N4  &kp N5  &kp N6 &kp ENTER        &none &none &none &none &none
+                    &kp RSHFT &kp N7  &kp N8  &kp N9 &kp N0           &none &none &none &none &to BASE
+                                              &none  &ht RCTRL SPACE  &none &none
             >;
         };
     };
