@@ -1,11 +1,14 @@
 manifest:
   remotes:
-    - name: jgreel
-      url-base: https://github.com/jgreel
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: jgreel
-      revision: main
+      remote: urob
+      revision: main-3.2
       import: app/west.yml
   self:
     path: config
+    
