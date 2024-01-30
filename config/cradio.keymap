@@ -16,6 +16,7 @@
 #define GAME_ALT 7
 
 
+
 // #include <dt-bindings/zmk/mouse.h>
 
 &mt {
@@ -41,7 +42,6 @@
             flavor = "tap-preferred";
             tapping-term-ms = <220>;
             quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
         tdl1: tap_dance_0 {
