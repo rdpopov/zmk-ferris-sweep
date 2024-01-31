@@ -37,8 +37,6 @@
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
 
-
-
 #define BASE 0
 #define NUM 1
 #define SYM 2
@@ -47,10 +45,9 @@
 #define POE_ALT 5
 #define GAME 6
 #define GAME_ALT 7
+#define MOUSE 8
 
 
-
-// #include <dt-bindings/zmk/mouse.h>
 
 &mt {
     flavor = "tap-preferred";
@@ -129,6 +126,12 @@
             key-positions = <30 33>;
             bindings = <&to 0>;
         };
+
+        combo_layer_mouse {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&mo MOUSE>;
+        };
     };
 
     keymap {
@@ -205,6 +208,14 @@
                     &kp TAB   &kp N4  &kp N5  &kp N6 &kp ENTER        &none &none &none &none &none
                     &kp RSHFT &kp N7  &kp N8  &kp N9 &kp N0           &none &none &none &none &to BASE
                                               &none  &ht RCTRL SPACE  &none &none
+            >;
+        };
+        mouse {
+            bindings = <
+                    &none   &none  &none  &none &none            &mwh SCROLL_UP   &mwh SCROLL_LEFT &mmv MOVE_UP   &mwh SCROLL_RIGHT &kp BKSP
+                    &none   &none  &kp A  &kp X &none            &mwh SCROLL_DOWN &mmv MOVE_LEFT   &mmv MOVE_DOWN &mmv MOVE_RIGHT   &none
+                    &none   &none  &kp C  &kp V &none            &mkp MCLK        &none            &none          &none             &kp ESC
+                                          &kp RSHFT &kp RCTRL    &mkp LCLK        &mkp RCLK
             >;
         };
     };
