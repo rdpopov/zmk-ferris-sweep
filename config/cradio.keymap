@@ -138,6 +138,22 @@
             key-positions = <13 16>;
             bindings = <&to BTT>;
         };
+// these are temporary.
+        combo_key_fslh {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            layers = <0>;
+            bindings = <&kp FSLH>;
+        };
+
+        combo_key_semi {
+            timeout-ms = <50>;
+            key-positions = <27 28>;
+            layers = <1>;
+            bindings = <&kp SEMI>;
+        };
+
+
     };
 
     keymap {
