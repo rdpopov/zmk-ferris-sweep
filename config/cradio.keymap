@@ -153,6 +153,40 @@
             bindings = <&kp SEMI>;
         };
 
+        combo_key_bt_one {
+            timeout-ms = <50>;
+            key-positions = <20 0>;
+            layers = <1>;
+            bindings = <&bt BT_SEL 0>;
+        };
+
+        combo_key_bt_two {
+            timeout-ms = <50>;
+            key-positions = <20 1>;
+            layers = <1>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+        combo_key_bt_thr {
+            timeout-ms = <50>;
+            key-positions = <20 2>;
+            layers = <1>;
+            bindings = <&bt BT_SEL 2>;
+        };
+
+        combo_key_bt_fr {
+            timeout-ms = <50>;
+            key-positions = <20 3>;
+            layers = <1>;
+            bindings = <&bt BT_SEL 3>;
+        };
+
+        combo_key_bt_fv {
+            timeout-ms = <50>;
+            key-positions = <20 4>;
+            layers = <1>;
+            bindings = <&bt BT_SEL 4>;
+        };
 
     };
 
