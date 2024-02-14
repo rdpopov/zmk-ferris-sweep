@@ -101,6 +101,25 @@
             key-positions = <24 25>;
             bindings = <&to BTT>;
         };
+
+        combo_alt {
+            timeout-ms = <50>;
+            key-positions = <3 4>;
+            bindings = <&kp LALT>;
+        };
+
+        combo_alt {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+
+        combo_gui {
+            timeout-ms = <50>;
+            key-positions = <5 6>;
+            bindings = <&kp LGUI>;
+        };
+
     };
 
     keymap {
@@ -110,7 +129,7 @@
             bindings = <
                 &kp Q  &kp W       &kp E      &kp R                &kp T              &kp Y            &kp U                &kp I       &kp O    &kp P
                 &kp A  &kp S       &kp D  &k F  &kp G              &kp H           &kp   J          &kp K  &kp L    &kp SQT
-              &ht LGUI Z  &ht LALT X  &kp C      &kp V                &kp B              &kp N            &kp M                &kp COMMA   &ht RAL DOT  &ht RGUI FSLH
+                &kp Z  &kp X  &kp C      &kp V                &kp B              &kp N            &kp M                &kp COMMA   &kp DOT  &kp FSLH
                                          &lt NUM ESC          &ht RSHFT SPACE    &ht RCTRL ENTER  &lt SYM BKSP
             >;
         };
