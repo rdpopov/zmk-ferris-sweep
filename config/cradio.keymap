@@ -131,8 +131,15 @@
         };
         combo_layer_mouse {
             timeout-ms = <50>;
-            key-positions = <20 21>;
+            key-positions = <16 17>;
             bindings = <&to MOUSE>;
+            layer = <BASE>
+        };
+        combo_layer_from_mouse {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&to BASE>;
+            layer = <MOUSE>
         };
     };
 
@@ -151,9 +158,9 @@
         // NUM
         left_layer {
             bindings = <
-                &kp ESC    &kp N1  &kp N2  &kp N3  &sk RALT      &kp UNDERSCORE &kp LPAR  &kp RPAR  &kp PLUS  &kp DEL
-                &kp TAB    &kp N4  &kp N5  &kp N6  &caps_word    &kp MINUS      &kp LBRC  &kp RBRC  &kp EQUAL &kp COLON
-                &sk RSHFT  &kp N7  &kp N8  &kp N9  &kp N0        &kp PIPE       &kp LBKT  &kp RBKT  &kp BSLH   &kp SEMI
+                &kp ESC    &kp N1  &kp N2  &kp N3  &kp TILDE     &kp UNDERSCORE &kp LPAR  &kp RPAR  &kp PLUS  &kp DEL
+                &kp TAB    &kp N4  &kp N5  &kp N6  &kp GRAVE     &kp MINUS      &kp LBRC  &kp RBRC  &kp EQUAL &kp COLON
+                &sk RSHFT  &kp N7  &kp N8  &kp N9  &kp N0        &kp PIPE       &kp LBKT  &kp RBKT  &kp BSLH  &kp SEMI
                                            &none   &trans        &trans         &sk RGUI
             >;
         };
@@ -176,8 +183,6 @@
                                                            &none         &bt BT_CLR       &trans &none
             >;
         };
-
-
 
 
         poe {
@@ -203,7 +208,7 @@
                     &kp ESC   &kp Q  &kp W  &kp E        &kp R            &none &none &none &none &none
                     &kp TAB   &kp A  &kp S  &kp D        &kp F            &none &none &none &none &none
                     &kp RSHFT &kp Z  &kp X  &kp C        &kp V            &none &none &none &none &none
-                                            &mo GAME_ALT &kp RCTRL        &none &none
+                                            &mo GAME_ALT &kp SPACE        &none &none
             >;
         };
 
@@ -211,7 +216,7 @@
             bindings = <
                     &kp ESC   &kp N1  &kp N2  &kp N3 &kp R            &none &none &none &none &none
                     &kp TAB   &kp N4  &kp N5  &kp N6 &kp ENTER        &none &none &none &none &none
-                    &kp RSHFT &kp N7  &kp N8  &kp N9 &kp N0           &none &none &none &none &none
+                    &kp RCTRL &kp N7  &kp N8  &kp N9 &kp N0           &none &none &none &none &none
                                               &none  &ht RCTRL SPACE  &none &none
             >;
         };
