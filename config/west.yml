@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: xqinx
+      url-base: https://github.com/xqinx
     - name: urob
       url-base: https://github.com/urob
   projects:
@@ -9,5 +11,8 @@ manifest:
       remote: urob
       revision: main-3.2
       import: app/west.yml
+    - name: joystick
+      remote: xqinx
+      revision: thb
   self:
     path: config
