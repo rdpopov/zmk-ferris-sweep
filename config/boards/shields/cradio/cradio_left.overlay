@@ -1,0 +1,46 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "cradio.dtsi"
+
+&pro_micro_spi { status = "disabled"; };
+&pro_micro_serial { status = "disabled"; };
+
+&pinctrl {
+        i2c0_default: i2c0_default {
+                group1 {
+                        psels = <NRF_PSEL(TWIM_SDA, 1, 1)>,
+                                <NRF_PSEL(TWIM_SCL, 1, 2)>;
+                };
+        };
+};
+
+&i2c0_default {
+    status = "okay";
+
+    cirque: cirque {
+        compatible = "cirque,pinnacle";
+        //reg = <0x2a>;
+        status = "okay";
+        dr-gpios = <&gpio1 1>;
+        sensitivity = "1x";
+        // sleep;
+        // no-taps;
+    };
+};
+
+/ {
+  cirque_listener {
+    compatible = "zmk,input-listener";
+    device = <&cirque>;
+
+    xy-swap;
+    y-invert;
+    x-invert;
+    scale-multiplier = <1>;
+    scale-divisor = <1>;
+  };
+};

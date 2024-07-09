@@ -2,17 +2,26 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: xqinx
-      url-base: https://github.com/xqinx
     - name: urob
       url-base: https://github.com/urob
+    # - name: aepfli
+    #   url-base: https://github.com/aepfli
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
+    # - name: englmaxi
+    #   url-base: https://github.com/englmaxi
+    - name: badjeff
+      url-base: https://github.com/badjeff
   projects:
     - name: zmk
-      remote: urob
-      revision: main-3.2
+      remote: petejohanson
+      revision: feat/pointers-move-scroll
       import: app/west.yml
-    - name: joystick
-      remote: xqinx
-      revision: thb
+    - name: cirque-input-module
+      remote: badjeff
+      revision: main
+    - name: zmk-input-behavior-listener
+      remote: badjeff
+      revision: main
   self:
     path: config
