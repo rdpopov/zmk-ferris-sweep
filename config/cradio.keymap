@@ -12,9 +12,6 @@
         acceleration-exponent=<1>;
 }; 
 
-#define U_MOUSE_MOVE_MAX 2250       // 600
-#define U_MOUSE_SCROLL_MAX 100      // 10
-
 #undef MOVE_UP
 #undef MOVE_DOWN
 #undef MOVE_LEFT
@@ -73,26 +70,6 @@
             quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
-        tdl1: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_LAYER_1";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sl 1>, <&to 1>;
-        };
-        tdl2: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_LAYER_2";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sl 2>, <&to 2>;
-        };
-        hold_tap_layer: hold_tap_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_TAP_LAYER";
-            bindings = <&mo>, <&to>;
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
         };
     };
 
@@ -107,41 +84,22 @@
 
     combos {
         compatible = "zmk,combos";
-
-       /* combo_esc {
+        combo_lck {
             timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp ESC>;
+            key-positions = <26 27>;
+            bindings = <&mkp LCLK>;
         };
-
-        combo_bksp {
+       
+        combo_rck {
             timeout-ms = <50>;
-            key-positions = <6 7>;
-            bindings = <&kp BACKSPACE>;
-        }; */
+            key-positions = <28 29>;
+            bindings = <&mkp RCLK>;
+        };
 
         combo_layer {
             timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&to 0>;
-        };
-
-        combo_layer_bt {
-            timeout-ms = <50>;
-            key-positions = <24 25>;
-            bindings = <&to BTT>;
-        };
-        combo_layer_mouse {
-            timeout-ms = <50>;
-            key-positions = <16 17>;
-            bindings = <&to MOUSE>;
-            layers = <BASE>;
-        };
-        combo_layer_from_mouse {
-            timeout-ms = <50>;
-            key-positions = <16 17>;
-            bindings = <&to BASE>;
-            layers = <MOUSE>;
+            bindings = <&mo BTT>;
         };
         
         combo_bt0 {
@@ -168,11 +126,6 @@
             timeout-ms = <50>;
             key-positions = <16 18>;
             bindings = <&bt BT_SEL 4>;
-        };
-        combo_bt_clr {
-            timeout-ms = <50>;
-            key-positions = <26 28>;
-            bindings = <&bt BT_CLR>;
         };
     };
 
@@ -210,74 +163,11 @@
 
         bt {
             bindings = <
-                    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4     &kp F1    &kp F2     &kp F3  &kp F4    &to POE
-                    &none        &none        &bt BT_PRV   &bt BT_NXT    &none            &kp F5    &kp F6     &kp F7  &kp F8    &to GAME
-                    &none        &none        &none        &none         &none            &kp F9    &kp F10    &kp F11 &kp F12   &to BTT
+                    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4     &kp F1    &kp F2     &kp F3  &kp F4    &none
+                    &none        &none        &bt BT_PRV   &bt BT_NXT    &none            &kp F5    &kp F6     &kp F7  &kp F8    &none
+                    &none        &none        &none        &none         &none            &kp F9    &kp F10    &kp F11 &kp F12   &none
                                                            &none         &bt BT_CLR       &trans &none
             >;
         };
-
-
-        poe {
-            bindings = <
-                    &kp N1     &kp N2 &kp N3 &kp N4      &kp N5     &none    &none    &none &none   &none
-                    &kp Q      &kp W  &kp E  &kp R       &kp T      &none    &none    &none &none   &none
-                    &kp LCTRL  &none  &none  &kp I       &kp P      &none    &none    &none &none   &none
-                                             &mo POE_ALT &kp TAB    &none   &none
-            >;
-        };
-
-        poe_alt {
-            bindings = <
-                    &kp ESC    &kp N2    &kp N3    &kp N4    &kp N5        &none    &none    &none &none   &none
-                    &kp LC(Q)  &kp LC(W) &kp LC(E) &kp LC(R) &kp LC(T)     &none    &none    &none &none   &none
-                    &kp LCTRL  &none     &none     &kp I     &kp P         &none    &none    &none &none   &none
-                                                   &none     &none         &none    &none
-            >;
-        };
-
-        game {
-            bindings = <
-                    &kp ESC   &kp Q  &kp W  &kp E        &kp R            &none &none &none &none &none
-                    &kp TAB   &kp A  &kp S  &kp D        &kp F            &none &none &none &none &to STALCRAFT
-                    &kp RSHFT &kp Z  &kp X  &kp C        &kp V            &none &none &none &none &none
-                                            &mo GAME_ALT &kp SPACE        &none &none
-            >;
-        };
-
-        game_alt {
-            bindings = <
-                    &kp ESC   &kp N1  &kp N2  &kp N3 &kp R            &none &none &none &none &none
-                    &kp TAB   &kp N4  &kp N5  &kp N6 &kp ENTER        &none &none &none &none &none
-                    &kp RCTRL &kp N7  &kp N8  &kp N9 &kp N0           &none &none &none &none &none
-                                              &none  &ht RCTRL SPACE  &none &none
-            >;
-        };
-        stalcraft {
-            bindings = <
-                    &kp ESC   &kp Q  &kp W  &kp E             &kp R            &none &none &none &none &none
-                    &kp TAB   &kp A  &kp S  &kp D             &kp I            &none &none &none &none &none
-                    &kp RSHFT &kp Z  &kp X  &kp C             &kp V            &none &none &none &none &none
-                                            &mo STALCRAFT_ALT &kp SPACE        &none &none
-            >;
-        };
-
-        stalcraft_alt {
-            bindings = <
-                    &kp ESC   &kp N1  &kp N2  &kp N3 &kp P            &none &none &none &none &none
-                    &kp TAB   &kp N4  &kp N5  &kp N6 &kp ENTER        &none &none &none &none &none
-                    &kp RCTRL &kp N7  &kp N8  &kp N9 &kp N0           &none &none &none &none &none
-                                              &none  &ht RCTRL SPACE  &none &none
-            >;
-        };
-        mouse {
-            bindings = <
-                &none   &none  &none  &none &none            &mmv SCROLL_LEFT   &mmv SCROLL_DOWN &mmv SCROLL_UP &mmv SCROLL_RIGHT &kp BKSP
-                &none   &none  &kp A  &kp X &none            &mmv MOVE_LEFT     &mmv MOVE_DOWN   &mmv MOVE_UP   &mmv MOVE_RIGHT   &none
-                &none   &none  &kp C  &kp V &none            &mkp MCLK          &none            &none          &none             &kp ESC
-                                    &kp RSHFT &kp RCTRL    &mkp LCLK          &mkp RCLK
-                >;
-        };
-        
     };
 };
