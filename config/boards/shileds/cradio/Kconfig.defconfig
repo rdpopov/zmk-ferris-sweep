@@ -8,6 +8,11 @@ config ZMK_KEYBOARD_NAME
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
+config ZMK_POINTING
+    default y
+
+config SPI
+    default y
 
 endif
 
