@@ -6,13 +6,13 @@ if SHIELD_CRADIO_LEFT
 config ZMK_KEYBOARD_NAME
     default "Cradio"
 
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-config ZMK_POINTING
-    default y
+# config ZMK_SPLIT_ROLE_CENTRAL
+#     default y
+# config ZMK_POINTING
+#     default y
 
-config I2C
-    default y
+# config I2C
+#     default y
 
 endif
 

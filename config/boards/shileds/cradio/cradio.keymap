@@ -5,8 +5,6 @@
 #define TAPPING_TIME 25
 
 
-
-
 #define BASE 0
 #define NUM 1
 #define SYM 2
@@ -28,23 +26,6 @@
 
 
 / {
-    glidepoint_listener {
-        input-processors 
-
-          = <&zip_xy_scaler 2 1>;
-
-        scroll {
-            layers = <SYM>;
-            input-processors
-              = <&zip_xy_scaler 1 32>
-              , <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT> /* natural scroll */
-              , <&zip_xy_to_scroll_mapper>
-            ;
-        };
-    };
-
-   
-   
     behaviors {
         ht: hold_tap {
             label = "hold_tap";
